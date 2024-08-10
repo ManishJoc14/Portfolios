@@ -25,14 +25,14 @@ export default function About() {
             <hr className="w-full" />
           </div>
           <p className="mt-8 md:mt-16 text-slate-400 font-sans tracking-wide">
-            Hello! I'm Manish, a passionate web developer with a strong
+            Hello! I&apos;m Manish, a passionate web developer with a strong
             foundation in both frontend and backend technologies. My journey
             began with HTML, CSS, and JavaScript, and over the years, I’ve
             expanded my expertise to include a range of modern web development
             tools.
           </p>
           <p className="mt-4 text-slate-400 font-sans tracking-wide">
-            I've had the opportunity to work on diverse projects, building
+            I&apos;ve had the opportunity to work on diverse projects, building
             robust and scalable web applications. My experience spans both
             frontend and backend development, allowing me to create
             comprehensive and dynamic web solutions. If you have any questions
@@ -85,7 +85,13 @@ export default function About() {
   );
 }
 
-function getDesignedSkillsUI(skills, title) {
+function getDesignedSkillsUI(
+  skills: {
+    name: string;
+    svg: string;
+  }[],
+  title: string
+) {
   return (
     <>
       <div className="space-y-2 rounded-lg border border-slate-500 flex flex-grow flex-col p-4">
