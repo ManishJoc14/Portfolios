@@ -1,6 +1,6 @@
 # Tailwind Portfolio
 
-Welcome to my portfolio website! This project showcases my work and skills using modern web development technologies, including **Next.js**, **Tailwind CSS**, and **Framer Motion**.
+Welcome to my portfolio website! This project showcases my work and skills using modern web development technologies, including ``Next.js``, ``Tailwind CSS``, and ``Framer Motion``.
 
 ![Portfolio Screenshot](./public/tailwind-portfolio.png)
 
@@ -42,6 +42,6 @@ To run this project locally, follow these steps:
 
 ## Technologies Used
 
-- **Next.js**: A React framework that enables server-side rendering and static site generation for optimal performance.
-- **Tailwind CSS**: A utility-first CSS framework that allows for rapid UI development with a consistent design.
-- **Framer Motion**: A powerful library for creating smooth and interactive animations in React.
+- ``Next.js``: A React framework that enables server-side rendering and static site generation for optimal performance.
+- ``Tailwind CSS``: A utility-first CSS framework that allows for rapid UI development with a consistent design.
+- ``Framer Motion``: A powerful library for creating smooth and interactive animations in React.
