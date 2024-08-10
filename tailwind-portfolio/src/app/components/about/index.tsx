@@ -11,16 +11,16 @@ export default function About() {
     <div
       id="about"
       // min-h-screen
-      className="container  mx-auto px-10 xl:px-0 max-w-5xl space-y-20 py-20"
+      className="container  mx-auto px-10 xl:px-0 max-w-5xl space-y-28 py-20"
     >
       {/* Intro start*/}
       <div className="flex flex-col sm:flex-row gap-10 sm:gap-16">
         {/* left start */}
         <div className="flex-1 text-sm md:text-base lg:text-lg">
-          <div className="flex text-2xl font-bold text-slate-200 gap-2 items-center text-nowrap">
+          <div className="flex font-bold gap-2 items-center text-nowrap">
             <div className="pr-2">
-              <span className="text-xl text-secondary pr-2">01.</span>
-              About Me
+              <span className="text-2xl text-secondary pr-2">01.</span>
+              <span className="font-sans text-4xl tracking-wide text-slate-200">About Me</span>
             </div>
             <hr className="w-full" />
           </div>
@@ -46,7 +46,7 @@ export default function About() {
         {/* left end */}
 
         {/* right start */}
-        <div className="group mt-4 md:mt-16 z-0 h-80 md:h-96 mx-auto relative">
+        <div className="group mt-4 md:mt-16 z-0 h-80 md:w-80 md:h-96 mx-auto relative">
           {/* my image */}
           <Image
             width={300}
@@ -61,7 +61,7 @@ export default function About() {
           <div className="absolute w-full h-full border-2 border-secondary top-8 left-0 rounded-md transition-all -z-10 pointer-events-none group-hover:top-9 group-hover:left-1"></div>
           {/* signature */}
           <Image
-            className="absolute scale-0 invert transition-all group-hover:scale-100  -bottom-12 -left-32 md:-left-24 lg:-left-32 w-40 h-32"
+            className="absolute scale-0 invert transition-all group-hover:scale-100  -bottom-12 -left-32 md:-left-24 lg:-left-32 w-44 h-32"
             src="/mySignature.png"
             alt="signature"
             height={300}
@@ -94,23 +94,25 @@ function getDesignedSkillsUI(
 ) {
   return (
     <>
-      <div className="space-y-2 rounded-lg border border-slate-500 flex flex-grow flex-col p-4">
-        <div className="flex flex-wrap justify-center items-center gap-4">
+      <div className="space-y-2 rounded-md border border-slate-600 flex flex-grow flex-col p-4">
+        <div className="flex flex-wrap justify-center items-center gap-4 p-2">
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="rounded-md animate-pulse hover:animate-none relative group h-12 w-12 sm:h-16 sm:w-16 p-2 bg-gradient-radial from-slate-500 to-slate-800 text-sm cursor-pointer hover:scale-110 transition-all text-secondary"
+              className="rounded-md text-secondary animate-pulse hover:animate-none relative group h-12 w-12 sm:h-16 sm:w-16 p-2 bg-gradient-to-r from-slate-400 to-slate-500 text-sm cursor-pointer hover:scale-110 transition-all"
             >
               {React.createElement("div", {
                 dangerouslySetInnerHTML: { __html: skill.svg },
               })}
-              <span className="hidden absolute group-hover:block scale-0 group-hover:scale-100 group-hover:transition-all group-hover:duration-300 -top-12 text-nowrap left-0 bg-primary-light px-3 py-2 rounded-md text-center">
+              <span className="hidden font-mono absolute group-hover:block scale-0 group-hover:scale-100 group-hover:transition-all group-hover:duration-300 -top-12 text-nowrap left-0 bg-primary-light px-3 py-2 rounded-md text-center">
                 {skill.name}
               </span>
             </div>
           ))}
         </div>
-        <p className="text-sm pt-1 md:text-center text-slate-300">{title}</p>
+        <p className="text-base pt-1 md:text-center text-blue-200 font-medium">
+          {title}
+        </p>
       </div>
     </>
   );
