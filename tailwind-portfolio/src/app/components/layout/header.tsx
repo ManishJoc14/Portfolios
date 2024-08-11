@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Hamburger from "../hamburger";
+import Link from "next/link";
 
 export default function Header() {
   const navLinks = ["About", "Work", "Contact"];
@@ -44,7 +45,7 @@ export default function Header() {
         }`}
       >
         {/* Logo */}
-        <div>{getLogo()}</div>
+        <Link href="/">{getLogo()}</Link>
 
         {/* Navigation links */}
         <nav className="flex items-baseline gap-8">
@@ -65,9 +66,15 @@ export default function Header() {
           <Hamburger />
 
           {/* Resume button */}
-          <button className="hidden sm:block md:text-md rounded-sm border border-secondary p-2 px-4 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow">
+          <Link
+            href="/Manish-Joshi-Resume.docx"
+            target="_blank"
+            download="Manish-Joshi-Resume.docx"
+            aria-label="Download Resume"
+            className="hidden sm:block md:text-md rounded-sm border border-secondary p-2 px-4 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow"
+          >
             Resume
-          </button>
+          </Link>
         </nav>
       </header>
     </>

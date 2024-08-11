@@ -11,7 +11,7 @@ export function MainProjects() {
       <div className="flex flex-col md:flex-row font-bold gap-6 md:items-center">
         <div>
           <span className="text-lg md:text-2xl text-secondary pr-2">02.</span>
-          <span className="font-sans text-xl md:text-4xl text-wrap md:text-nowrap tracking-wide text-slate-200">
+          <span className="font-sans text-xl md:text-4xl text-wrap md:text-nowrap tracking-wide text-violet-200">
             Some Things I’ve Built
           </span>
         </div>
@@ -41,7 +41,8 @@ function ProjectCardRight() {
             className="block h-full w-full rounded-md"
             alt="zingo"
           />
-          <div className="absolute inset-0 bg-primary bg-opacity-10 rounded-md transition-opacity hover:bg-opacity-0 ease-in duration-300"></div>
+          {/* green overlay */}
+          <div className="absolute inset-0 bg-secondary/30 rounded-md transition-opacity hover:opacity-0 ease-in duration-300"></div>
         </div>
         <p className="pt-6 col-start-5 row-start-1 font-mono text-sm text-secondary text-nowrap md:text-right">
           Featured Project
@@ -97,7 +98,8 @@ function ProjectCardLeft() {
             className="block h-full w-full rounded-md"
             alt="zingo"
           />
-          <div className="absolute inset-0 bg-primary bg-opacity-10 rounded-md transition-opacity hover:bg-opacity-0 ease-in duration-300"></div>
+          {/* green overlay */}
+          <div className="absolute inset-0 bg-secondary/30 rounded-md transition-opacity hover:opacity-0 ease-in duration-300"></div>
         </div>
         {/* changed col-start-5 to col-start-1 and removed md:text-right */}
         <p className="pt-6 col-start-1 row-start-1 font-mono text-sm text-secondary text-nowrap">

@@ -10,7 +10,6 @@ export default function About() {
   return (
     <div
       id="about"
-      // min-h-screen
       className="container  mx-auto px-10 xl:px-0 max-w-5xl space-y-28 py-20"
     >
       {/* Intro start*/}
@@ -20,7 +19,7 @@ export default function About() {
           <div className="flex font-bold gap-2 items-center text-nowrap">
             <div className="pr-2">
               <span className="text-2xl text-secondary pr-2">01.</span>
-              <span className="font-sans text-4xl tracking-wide text-slate-200">
+              <span className="font-sans text-4xl tracking-wide text-violet-200">
                 About Me
               </span>
             </div>
@@ -57,10 +56,13 @@ export default function About() {
             src="/my-image.jpg"
             alt="my image"
           />
-          {/* bg border */}
-          <div className="absolute top-4 -left-4 w-full h-full bg-primary bg-opacity-50 rounded-md transition-opacity ease-in-out group-hover:opacity-0"></div>
+
           {/* green overlay */}
+          <div className="absolute top-4 -left-4 w-full h-full bg-secondary/30 rounded-md transition-opacity ease-in-out group-hover:opacity-0"></div>
+
+          {/* bg border */}
           <div className="absolute w-full h-full border-2 border-secondary top-8 left-0 rounded-md transition-all -z-10 pointer-events-none group-hover:top-9 group-hover:left-1"></div>
+
           {/* signature */}
           <Image
             className="absolute scale-0 invert transition-all group-hover:scale-100  -bottom-12 -left-32 md:-left-24 lg:-left-32 w-44 h-32"

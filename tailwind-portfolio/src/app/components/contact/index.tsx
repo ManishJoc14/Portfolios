@@ -13,7 +13,7 @@ export default function Contact() {
             <span className="text-nowrap text-secondary">03. Contact Me</span>
             <hr className="w-full" />
           </div>
-          <h1 className="text-slate-200 font-sans font-extrabold text-4xl md:text-5xl tracking-wider mt-12 mb-4">
+          <h1 className="text-violet-200 font-sans font-extrabold text-4xl md:text-5xl tracking-wider mt-12 mb-4">
             Get In Touch
           </h1>
           <p className="text-center max-w-xl leading-relaxed tracking-wide text-slate-400 text-lg font-sans">

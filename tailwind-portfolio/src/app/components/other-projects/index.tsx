@@ -5,7 +5,7 @@ export default function OtherProjects() {
   return (
     <>
       <div className="container mx-auto px-8 pb-28 pt-56 sm:pt-52 md:pt-28 xl:py-10 max-w-4xl flex flex-col items-center">
-        <h1 className="text-4xl text-slate-200 font-sans tracking-wider font-bold text-center text-wrap md:text-nowrap">
+        <h1 className="text-4xl text-violet-200 font-sans tracking-wider font-bold text-center text-wrap md:text-nowrap">
           Other Noteworthy Projects
         </h1>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-col-3 py-16">
