@@ -1,9 +1,13 @@
 # Tailwind Portfolio
 
-Welcome to my portfolio website! This project showcases my work and skills using modern web development technologies, including ``Next.js``, ``Tailwind CSS``, and ``Framer Motion``.
+Welcome to my portfolio website! This project showcases my work and skills using modern web development technologies, including `Next.js`, `Tailwind CSS`, and `Framer Motion`.
 
 ![Portfolio Screenshot](./public/tailwind-portfolio.png)
-
+![Portfolio Screenshot](./public/tailwind-portfolio-about.png)
+![Portfolio Screenshot](./public/tailwind-portfolio-things-built.png)
+![Portfolio Screenshot](./public/tailwind-portfolio-things-built2.png)
+![Portfolio Screenshot](./public/tailwind-portfolio-other-projects.png)
+![Portfolio Screenshot](./public/tailwind-portfolio-contact.png)
 
 ## Table of Contents
 
@@ -21,27 +25,29 @@ To run this project locally, follow these steps:
    ```
 
 2. **Navigate to the project directory:**
-      ```bash
+
+   ```bash
    cd tailwind-portfolio
    ```
 
-3. **Install dependencies:**   
+3. **Install dependencies:**
+
    ```bash
    npm install
    ```
 
-3. **Run the development server:**
+4. **Run the development server:**
+
    ```bash
    npm run dev
    ```
 
- 4. **Open your browser:**
+5. **Open your browser:**
 
-   - Navigate to http://localhost:3000 to see the portfolio.
-
+- Navigate to http://localhost:3000 to see the portfolio.
 
 ## Technologies Used
 
-- ``Next.js``: A React framework that enables server-side rendering and static site generation for optimal performance.
-- ``Tailwind CSS``: A utility-first CSS framework that allows for rapid UI development with a consistent design.
-- ``Framer Motion``: A powerful library for creating smooth and interactive animations in React.
+- `Next.js`: A React framework that enables server-side rendering and static site generation for optimal performance.
+- `Tailwind CSS`: A utility-first CSS framework that allows for rapid UI development with a consistent design.
+- `Framer Motion`: A powerful library for creating smooth and interactive animations in React.
