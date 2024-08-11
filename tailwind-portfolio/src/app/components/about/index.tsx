@@ -20,7 +20,9 @@ export default function About() {
           <div className="flex font-bold gap-2 items-center text-nowrap">
             <div className="pr-2">
               <span className="text-2xl text-secondary pr-2">01.</span>
-              <span className="font-sans text-4xl tracking-wide text-slate-200">About Me</span>
+              <span className="font-sans text-4xl tracking-wide text-slate-200">
+                About Me
+              </span>
             </div>
             <hr className="w-full" />
           </div>
@@ -96,9 +98,9 @@ function getDesignedSkillsUI(
     <>
       <div className="space-y-2 rounded-md border border-slate-600 flex flex-grow flex-col p-4">
         <div className="flex flex-wrap justify-center items-center gap-4 p-2">
-          {skills.map((skill) => (
+          {skills.map((skill, i) => (
             <div
-              key={skill.name}
+              key={i + skill.name}
               className="rounded-md text-secondary animate-pulse hover:animate-none relative group h-12 w-12 sm:h-16 sm:w-16 p-2 bg-gradient-to-r from-slate-400 to-slate-500 text-sm cursor-pointer hover:scale-110 transition-all"
             >
               {React.createElement("div", {

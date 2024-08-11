@@ -6,7 +6,7 @@ export function MainProjects() {
   return (
     <div
       id="work"
-      className="container my-32 px-10 md:px space-y-10 min-h-screen mx-auto max-w-5xl"
+      className="container my-32 px-10 md:px space-y-10 mx-auto max-w-5xl"
     >
       <div className="flex flex-col md:flex-row font-bold gap-6 md:items-center">
         <div>
@@ -31,7 +31,7 @@ function ProjectCardRight() {
     <>
       <div
         key={project.id}
-        className="md:grid space-y-2 max-h-96 mt-16 md:grid-cols-5 md:grid-rows-9 rounded-md relative"
+        className="md:grid gap-2 max-h-96 mt-16 md:grid-cols-5 md:grid-rows-9 rounded-md relative"
       >
         <div className="col-start-1 row-start-2 row-span-7 col-span-3 relative cursor-pointer transition-all hover:z-50 hover:-translate-x-2 hover:-translate-y-2 hover:shadow-primary-shadow rounded-md">
           <Image
@@ -53,13 +53,13 @@ function ProjectCardRight() {
         >
           {project.title}
         </Link>
-        <p className="col-start-3 row-start-4 row-span-2 col-span-3 font-sans tracking-wider text-sm text-slate-300 md:text-right z-10 md:bg-primary-light py-4 md:py-6 md:px-2 rounded-md">
+        <p className="col-start-3 row-start-4 row-span-2 col-span-3 font-sans tracking-wider text-sm text-slate-300 md:text-right z-10 md:bg-primary-light md:py-6 p-4 rounded-md">
           {project.description}
         </p>
 
         <p className="text-slate-300 row-start-6 col-start-4 col-span-3 text-nowrap md:text-right space-x-4 py-4 md:p-2 md:py-4 text-sm">
-          {project.techs.map((tech) => (
-            <span key={tech}>{tech}</span>
+          {project.techs.map((tech, i) => (
+            <span key={i + tech}>{tech}</span>
           ))}
         </p>
 
@@ -72,20 +72,7 @@ function ProjectCardRight() {
             Demo
           </Link>
           <Link target="_blank" href={project.codelink}>
-            <svg
-              className="feather feather-github h-10 flex-shrink-0 text-secondary transition-colors cursor-pointer"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <title>Code</title>
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
+            {getGitHubLogo()}
           </Link>
         </div>
       </div>
@@ -133,8 +120,8 @@ function ProjectCardLeft() {
 
         {/* changed col-start-6 to col-start-1 and removed md:text-right */}
         <p className="text-slate-300 row-start-6 col-start-1 col-span-3 text-nowrap space-x-4 py-4 md:p-2 md:py-4 text-sm">
-          {project.techs.map((tech) => (
-            <span key={tech}>{tech}</span>
+          {project.techs.map((tech, i) => (
+            <span key={i + tech}>{tech}</span>
           ))}
         </p>
 
@@ -148,23 +135,29 @@ function ProjectCardLeft() {
             Demo
           </Link>
           <Link target="_blank" href={project.codelink}>
-            <svg
-              className="feather feather-github h-10 flex-shrink-0 text-secondary transition-colors cursor-pointer"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <title>GitHub</title>
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-            </svg>
+            {getGitHubLogo()}
           </Link>
         </div>
       </div>
     </>
+  );
+}
+
+function getGitHubLogo() {
+  return (
+    <svg
+      className="feather feather-github h-10 flex-shrink-0 text-secondary transition-colors cursor-pointer"
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <title>Code</title>
+      <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+    </svg>
   );
 }
