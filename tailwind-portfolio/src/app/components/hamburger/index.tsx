@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function Hamburger() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,6 +18,17 @@ export default function Hamburger() {
       });
       toggleMenu();
     }
+  };
+
+  const listItemVariants = {
+    closed: {
+      x: 10,
+      opacity: 0,
+    },
+    opened: {
+      x: 0,
+      opacity: 1,
+    },
   };
 
   return (
@@ -47,19 +59,24 @@ export default function Hamburger() {
         ></div>
       </div>
       <ul
-        className={` ${
+        className={`${
           isOpen ? "right-0" : "-right-52"
         } transition-all duration-300 ease-out flex flex-col py-36 px-12 fixed z-50 min-h-screen w-52 top-0 bg-primary-light sm:hidden gap-8`}
       >
         {navLinks.map((item, i) => (
-          <li
+          <motion.li
+            variants={listItemVariants}
+            animate={isOpen ? "opened" : "closed"}
+            transition={{ delay: (i + 1) * 0.1, duration: 0.4 }}
             key={i + item}
             className="cursor-pointer text-lg hover:text-secondary"
             onClick={() => handleScrollToDiv(item.toLowerCase())}
           >
-            <span className="text-sm text-secondary">0{i + 1}. </span>
-            <span>{item}</span>
-          </li>
+            <motion.span className="text-sm text-secondary">
+              0{i + 1}.{" "}
+            </motion.span>
+            <motion.span>{item}</motion.span>
+          </motion.li>
         ))}
       </ul>
     </>

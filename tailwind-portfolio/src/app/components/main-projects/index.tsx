@@ -1,14 +1,29 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { mainProjects } from "../../../../public/projects";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export function MainProjects() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isContainerRefInView = useInView(containerRef, {
+    // once: true,
+    margin: "-40px",
+  });
   return (
-    <div
+    <motion.div
       id="work"
+      ref={containerRef}
       className="container my-32 px-10 md:px space-y-10 mx-auto max-w-5xl"
     >
-      <div className="flex flex-col md:flex-row font-bold gap-6 md:items-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9, y: 40 }}
+        animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+        transition={{ delay: 0.3, duration: 0.6 }}
+        className="flex flex-col md:flex-row font-bold gap-6 md:items-center"
+      >
         <div>
           <span className="text-lg md:text-2xl text-secondary pr-2">02.</span>
           <span className="font-sans text-xl md:text-4xl text-wrap md:text-nowrap tracking-wide text-violet-200">
@@ -16,20 +31,24 @@ export function MainProjects() {
           </span>
         </div>
         <hr className="w-full" />
-      </div>
+      </motion.div>
 
       <div className="grid gap-64 md:gap-32 ">
-        {ProjectCardRight()} {ProjectCardLeft()}
+        {ProjectCardRight(isContainerRefInView)}
+        {ProjectCardLeft(isContainerRefInView)}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-function ProjectCardRight() {
+function ProjectCardRight(isContainerRefInView: {}) {
   let project = mainProjects[0];
   return (
     <>
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, y: 40 }}
+        animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+        transition={{ delay: 1 * 0.3, duration: 0.8 }}
         key={project.id}
         className="md:grid gap-2 max-h-96 mt-16 md:grid-cols-5 md:grid-rows-9 rounded-md relative"
       >
@@ -76,16 +95,19 @@ function ProjectCardRight() {
             {getGitHubLogo()}
           </Link>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }
 
-function ProjectCardLeft() {
+function ProjectCardLeft(isContainerRefInView: {}) {
   let project = mainProjects[1];
   return (
     <>
-      <div
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, y: 40 }}
+        animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+        transition={{ delay: 3 * 0.3, duration: 0.8 }}
         key={project.id}
         className="md:grid space-y-2 md:space-y-0 max-h-96 mt-16 md:grid-cols-5 md:grid-rows-9 rounded-md relative"
       >
@@ -140,7 +162,7 @@ function ProjectCardLeft() {
             {getGitHubLogo()}
           </Link>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

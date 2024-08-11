@@ -1,41 +1,73 @@
+"use client";
+
 import Link from "next/link";
 import { otherProjects } from "../../../../public/projects";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function OtherProjects() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isContainerRefInView = useInView(containerRef, {
+    // once: true,
+    margin: "-40px",
+  });
   return (
     <>
-      <div className="container mx-auto px-8 pb-28 pt-56 sm:pt-52 md:pt-28 xl:py-10 max-w-4xl flex flex-col items-center">
-        <h1 className="text-4xl text-violet-200 font-sans tracking-wider font-bold text-center text-wrap md:text-nowrap">
+      <motion.div
+        ref={containerRef}
+        className="container mx-auto px-8 pb-28 pt-56 sm:pt-52 md:pt-28 xl:py-10 max-w-4xl flex flex-col items-center"
+      >
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-4xl text-violet-200 font-sans tracking-wider font-bold text-center text-wrap md:text-nowrap"
+        >
           Other Noteworthy Projects
-        </h1>
+        </motion.h1>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-col-3 py-16">
-          {otherProjects.map((project) => ProjectCard(project))}
+          {otherProjects.map((project, index) =>
+            ProjectCard(project, isContainerRefInView, index)
+          )}
         </div>
 
         {/* Button */}
-        <Link
-          href="https://github.com/ManishJoc14"
-          target="_blank"
-          className="rounded-md w-max mt-8 border border-secondary p-4 px-6 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow "
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9, y: 40 }}
+          animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+          transition={{ delay: 2, duration: 0.6 }}
         >
-          Show More
-        </Link>
-      </div>
+          <Link
+            href="https://github.com/ManishJoc14"
+            target="_blank"
+            className="rounded-md w-max mt-8 border border-secondary p-4 px-6 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow "
+          >
+            Show More
+          </Link>
+        </motion.div>
+      </motion.div>
     </>
   );
 }
 
-function ProjectCard(project: {
-  id: number;
-  title: string;
-  description: string;
-  img: string;
-  codelink: string;
-  demolink: string;
-  techs: string[];
-}) {
+function ProjectCard(
+  project: {
+    id: number;
+    title: string;
+    description: string;
+    img: string;
+    codelink: string;
+    demolink: string;
+    techs: string[];
+  },
+  isContainerRefInView: {},
+  index: number
+) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8, y: 40 }}
+      animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+      transition={{ delay: (2.5 + index) * 0.3, duration: 0.6 }}
       key={project.id + project.title}
       className="p-6 bg-primary-light rounded-md"
     >
@@ -63,7 +95,7 @@ function ProjectCard(project: {
           ))}
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

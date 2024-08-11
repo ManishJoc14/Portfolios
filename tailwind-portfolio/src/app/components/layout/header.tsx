@@ -2,8 +2,30 @@
 import React, { useEffect, useState } from "react";
 import Hamburger from "../hamburger";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Header() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        // when: "beforeChildren",
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+  };
   const navLinks = ["About", "Work", "Contact"];
   const [isSticky, setIsSticky] = useState(false);
   const [prevScrollY, setPrevScrollY] = useState(0);
@@ -39,7 +61,10 @@ export default function Header() {
 
   return (
     <>
-      <header
+      <motion.header
+        variants={container}
+        initial="hidden"
+        animate="show"
         className={`flex backdrop-blur-md bg-primary/50 px-10 sm:px-12 py-3 sm:py-4 items-center justify-between text-slate-300 z-50 transition-all duration-500 ease-in-out overflow-x-clip sticky ${
           isSticky ? "top-0 left-0 shadow-lg" : "-top-24 left-0"
         }`}
@@ -51,14 +76,15 @@ export default function Header() {
         <nav className="flex items-baseline gap-8">
           <ul className="hidden sm:flex sm:gap-7" id="menu">
             {navLinks.map((item, i) => (
-              <li
+              <motion.li
+                variants={childVariants}
                 key={i + item}
                 className="cursor-pointer text-sm hover:text-secondary"
                 onClick={() => handleScrollToDiv(item.toLowerCase())}
               >
                 <span className="text-sm text-secondary">0{i + 1}. </span>
                 <span>{item}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
 
@@ -76,7 +102,7 @@ export default function Header() {
             Resume
           </Link>
         </nav>
-      </header>
+      </motion.header>
     </>
   );
 }

@@ -1,19 +1,39 @@
+"use client";
+
 import Image from "next/image";
 import {
   frontEndSkills,
   backendSkills,
   otherSkills,
 } from "../../../../public/skills";
-import React from "react";
+import React, { useRef } from "react";
+import { useInView, motion } from "framer-motion";
 
 export default function About() {
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const skillRef = useRef<HTMLDivElement>(null);
+  const isAboutRefInView = useInView(aboutRef, {
+    // once: true,
+    margin: "-40px",
+  });
+  const isSkillRefInView = useInView(aboutRef, {
+    // once: true,
+    margin: "100px 0px -100px 0%",
+  });
+
   return (
-    <div
+    <motion.div
       id="about"
+      ref={aboutRef}
       className="container  mx-auto px-10 xl:px-0 max-w-5xl space-y-28 py-20"
     >
       {/* Intro start*/}
-      <div className="flex flex-col sm:flex-row gap-10 sm:gap-16">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, y: 40 }}
+        animate={isAboutRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        className="flex flex-col sm:flex-row gap-10 sm:gap-16"
+      >
         {/* left start */}
         <div className="flex-1 text-sm md:text-base lg:text-lg">
           <div className="flex font-bold gap-2 items-center text-nowrap">
@@ -73,19 +93,27 @@ export default function About() {
           />
         </div>
         {/* right end */}
-      </div>
+      </motion.div>
       {/* Intro end */}
 
       {/* skills start*/}
-      <div className="space-y-4 justify-center">
-        {getDesignedSkillsUI(frontEndSkills, "Front-end Development")}
+      <div ref={skillRef} className="space-y-4 justify-center">
+        {getDesignedSkillsUI(
+          frontEndSkills,
+          "Front-end Development",
+          isSkillRefInView
+        )}
         <div className="flex flex-col sm:flex-row gap-6">
-          {getDesignedSkillsUI(backendSkills, "Back-end Development")}
-          {getDesignedSkillsUI(otherSkills, "Other Skills")}
+          {getDesignedSkillsUI(
+            backendSkills,
+            "Back-end Development",
+            isSkillRefInView
+          )}
+          {getDesignedSkillsUI(otherSkills, "Other Skills", isSkillRefInView)}
         </div>
       </div>
       {/* skills end*/}
-    </div>
+    </motion.div>
   );
 }
 
@@ -94,14 +122,18 @@ function getDesignedSkillsUI(
     name: string;
     svg: string;
   }[],
-  title: string
+  title: string,
+  isSkillRefInView: {}
 ) {
   return (
     <>
-      <div className="space-y-2 rounded-md border border-slate-600 flex flex-grow flex-col p-4">
+      <motion.div className="space-y-2 rounded-md border border-slate-600 flex flex-grow flex-col p-4">
         <div className="flex flex-wrap justify-center items-center gap-4 p-2">
           {skills.map((skill, i) => (
-            <div
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={isSkillRefInView ? { scale: 1 } : { scale: 0 }}
+              transition={{ delay: 1 + i * 0.1 }}
               key={i + skill.name}
               className="rounded-md text-secondary animate-pulse hover:animate-none relative group h-12 w-12 sm:h-16 sm:w-16 p-2 bg-gradient-to-r from-slate-400 to-slate-500 text-sm cursor-pointer hover:scale-110 transition-all"
             >
@@ -111,13 +143,13 @@ function getDesignedSkillsUI(
               <span className="hidden font-mono absolute group-hover:block scale-0 group-hover:scale-100 group-hover:transition-all group-hover:duration-300 -top-12 text-nowrap left-0 bg-primary-light px-3 py-2 rounded-md text-center">
                 {skill.name}
               </span>
-            </div>
+            </motion.div>
           ))}
         </div>
         <p className="text-base pt-1 md:text-center text-blue-200 font-medium">
           {title}
         </p>
-      </div>
+      </motion.div>
     </>
   );
 }

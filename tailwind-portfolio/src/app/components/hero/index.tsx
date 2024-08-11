@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   const handleScrollToDiv = (id: string) => {
@@ -14,40 +15,101 @@ export default function Hero() {
       });
     }
   };
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        // when: "beforeChildren",
+        staggerChildren: 0.3,
+        delayChildren: 2.6,
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+    },
+  };
+
   return (
-    <main className="container px-10 xl:px-0 mx-auto max-w-5xl flex flex-col gap-4 pt-20 xl:py-36">
-      <p className="text-secondary text-lg font-thin">Hi, my name is</p>
-      <h1 className=" text-5xl font-sans sm:text-6xl md:text-7xl text-indigo-200 font-bold -tracking-tight">
-        Manish Joshi.
-      </h1>
-      <h1 className="text-4xl font-sans sm:text-5xl md:text-6xl text-slate-400 font-bold -tracking-wide">
+    <motion.main
+      variants={container}
+      // transition={{ staggerChildren: 0.5 }}
+      initial="hidden"
+      animate="show"
+      className="container px-10 xl:px-0 mx-auto max-w-5xl flex flex-col gap-4 pt-20 xl:py-36"
+    >
+      <motion.p
+        variants={childVariants}
+        transition={{ delay: 1 }}
+        className="text-secondary text-lg font-thin"
+      >
+        Hi, my name is
+      </motion.p>
+      <motion.h1
+        variants={childVariants}
+        transition={{ delay: 1.2 }}
+        className=" text-5xl font-sans sm:text-6xl md:text-7xl text-indigo-200 font-bold -tracking-tight"
+      >
+        {"Manish Joshi".split("").map((letter, index) => (
+          <motion.span
+            key={index}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 1,
+              delay: +index * 0.1,
+            }}
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </motion.h1>
+      <motion.h1
+        variants={childVariants}
+        transition={{ delay: 1.4 }}
+        className="text-4xl font-sans sm:text-5xl md:text-6xl text-slate-400 font-bold -tracking-wide"
+      >
         Engineering Digital Excellence.
-      </h1>
-      <p className="text-slate-400 font-sans max-w-xl text-md md:text-lg mt-2">
+      </motion.h1>
+      <motion.p
+        variants={childVariants}
+        transition={{ delay: 1.6 }}
+        className="text-slate-400 font-sans max-w-xl text-md md:text-lg mt-2"
+      >
         With a focus on user accessibility and human-centered design, I bring
         innovation and expertise to every project. Join me on my journey as I
         create, code, and bring your digital dreams to life.
-      </p>
-      <button
+      </motion.p>
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2, duration: 0.2 }}
         onClick={() => handleScrollToDiv("work")}
         className="rounded-md text-wrap max-w-64 mt-8 border border-secondary p-4 px-6 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow"
       >
         Checkout my projects!
-      </button>
-      {socialLinks()}
-      <div className="fixed z-[900] h-max p-2 w-9 hidden lg:flex flex-col gap-10 -bottom-10 right-4 xl:right-10">
-        <Link
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=manishjoc14@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-secondary font-mono tracking-widest text-sm rotate-90 mb-36 hover:mb-40 text-slate-400 transition-all duration-300 ease"
-        >
-          manishjoc14@gmail.com
-        </Link>
-        <span className="w-[0.1px] mx-auto h-32 bg-gray-50"></span>
-      </div>
-      <svg
-        className="invert mt-16 animate-bounce"
+      </motion.button>
+
+      {/* socails icons  */}
+      {socialLinksLeft(childVariants)}
+
+      {/* gmail  */}
+      {socialLinksRight(childVariants)}
+
+      {/* animating SVG */}
+      <motion.svg
+        variants={childVariants}
+        transition={{ delay: 2.2 }}
+        className="invert mt-16 animate-bounce delay-[1000ms]"
         viewBox="0 0 24 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -61,15 +123,18 @@ export default function Hero() {
         ></path>
         <path d="M12 6V14" stroke="#000000" strokeWidth="1"></path>
         <path d="M15 11L12 14L9 11" stroke="#000000" strokeWidth="1"></path>
-      </svg>
-    </main>
+      </motion.svg>
+    </motion.main>
   );
 }
-
-function socialLinks() {
+function socialLinksLeft(childVariants: any) {
   return (
     <>
-      <ul className="fixed z-[900] h-max p-2 w-9 lg:flex flex-col gap-7 -bottom-10 hidden left-4 xl:left-10 ">
+      <motion.ul
+        variants={childVariants}
+        transition={{ delay: 2.6 }}
+        className="fixed z-[900] h-max p-2 w-9 lg:flex flex-col gap-7 -bottom-10 hidden left-4 xl:left-10 "
+      >
         <li>
           <Link
             href="https://github.com/ManishJoc14"
@@ -166,7 +231,27 @@ function socialLinks() {
           </Link>
         </li>
         <li className="w-[0.1px] mx-auto h-32 bg-gray-50"></li>
-      </ul>
+      </motion.ul>
     </>
+  );
+}
+
+function socialLinksRight(childVariants: any) {
+  return (
+    <motion.div
+      variants={childVariants}
+      transition={{ delay: 2.8 }}
+      className="fixed z-[900] h-max p-2 w-9 hidden lg:flex flex-col gap-10 -bottom-10 right-4 xl:right-10"
+    >
+      <Link
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=manishjoc14@gmail.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hover:text-secondary font-mono tracking-widest text-sm rotate-90 mb-36 hover:mb-40 text-slate-400 transition-all duration-300 ease"
+      >
+        manishjoc14@gmail.com
+      </Link>
+      <span className="w-[0.1px] mx-auto h-32 bg-gray-50"></span>
+    </motion.div>
   );
 }
