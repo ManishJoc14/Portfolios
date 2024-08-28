@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Hamburger() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ export default function Hamburger() {
 
   const listItemVariants = {
     closed: {
-      x: 10,
+      x: 100,
       opacity: 0,
     },
     opened: {
@@ -67,7 +68,7 @@ export default function Hamburger() {
           <motion.li
             variants={listItemVariants}
             animate={isOpen ? "opened" : "closed"}
-            transition={{ delay: (i + 1) * 0.1, duration: 0.4 }}
+            transition={{ delay: i * 0.1, duration: 0.4 }}
             key={i + item}
             className="cursor-pointer text-lg hover:text-secondary"
             onClick={() => handleScrollToDiv(item.toLowerCase())}
@@ -78,6 +79,22 @@ export default function Hamburger() {
             <motion.span>{item}</motion.span>
           </motion.li>
         ))}
+        {/* Resume button */}
+        <motion.li
+          variants={listItemVariants}
+          animate={isOpen ? "opened" : "closed"}
+          transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
+        >
+          <Link
+            href="/Manish-Joshi-Resume.docx"
+            target="_blank"
+            download="Manish-Joshi-Resume.docx"
+            aria-label="Download Resume"
+            className="md:text-md rounded-sm border border-secondary p-2 px-4 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow"
+          >
+            Resume
+          </Link>
+        </motion.li>
       </ul>
     </>
   );

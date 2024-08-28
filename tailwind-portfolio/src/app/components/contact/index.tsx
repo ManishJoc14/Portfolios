@@ -54,14 +54,16 @@ export default function Contact() {
             transition={{ delay: 0.9, duration: 0.6 }}
             className="mt-10"
           >
-            <Link
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=manishjoc14@gmail.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-md w-max border border-secondary p-4 px-6 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow mx-auto mt-12"
-            >
-              Say Hello
-            </Link>
+            {/* Button */}
+            <button className="rounded-md w-max border border-secondary p-4 px-6 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow mx-auto mt-12">
+              <Link
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=manishjoc14@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Say Hello
+              </Link>
+            </button>
           </motion.div>
         </div>
       </motion.div>

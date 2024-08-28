@@ -11,6 +11,7 @@ export default function OtherProjects() {
     // once: true,
     margin: "-40px",
   });
+
   return (
     <>
       <motion.div
@@ -37,13 +38,11 @@ export default function OtherProjects() {
           animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
           transition={{ delay: 2, duration: 0.6 }}
         >
-          <Link
-            href="https://github.com/ManishJoc14"
-            target="_blank"
-            className="rounded-md w-max mt-8 border border-secondary p-4 px-6 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow "
-          >
-            Show More
-          </Link>
+          <button className="rounded-md text-wrap max-w-64 mt-8 border border-secondary p-4 px-6 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow">
+            <Link href="https://github.com/ManishJoc14" target="_blank">
+              Show more
+            </Link>
+          </button>
         </motion.div>
       </motion.div>
     </>
