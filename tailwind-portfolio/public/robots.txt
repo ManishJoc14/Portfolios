@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manish-joshi.vercel.app/sitemap.xml

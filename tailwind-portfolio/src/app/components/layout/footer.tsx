@@ -10,7 +10,7 @@ export default function Footer() {
     margin: "-40px",
   });
   return (
-    <motion.div
+    <motion.footer
       ref={containerRef}
       initial={{ opacity: 0, scale: 0.9, y: 40 }}
       animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
@@ -22,6 +22,6 @@ export default function Footer() {
         Made with ❤️ By
         <span className="text-secondary animate-pulse pl-1">Manish</span>
       </p>
-    </motion.div>
+    </motion.footer>
   );
 }

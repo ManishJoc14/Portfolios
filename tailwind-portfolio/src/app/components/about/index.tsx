@@ -74,7 +74,8 @@ export default function About() {
             height={300}
             className="rounded-md mt-8 h-full block w-full transition-all transform -translate-x-4 -translate-y-4 group-hover:-translate-x-6 group-hover:-translate-y-6"
             src="/my-image.jpg"
-            alt="my image"
+            alt="Manish Joshi Frontend Developer"
+            priority
           />
 
           {/* green overlay */}
