@@ -22,8 +22,19 @@ export const mainProjects = [
 ];
 
 export const otherProjects = [
+
   {
     id: 3,
+    title: "Smart Reader",
+    description:
+      "This is a website who wants to read pdfs and do translations in english to nepali while reading.",
+    img: "/projectImages/smart_reader.png",
+    codelink: "https://github.com/ManishJoc14/smart-reader",
+    demolink: "https://smart-reader-navy.vercel.app/",
+    techs: ["Next.js", "Microsoft Azure", "TailwindCSS"],
+  },
+  {
+    id: 4,
     title: "First Next.js Portfolio",
     description:
       "This is my first portfolio site developed with Next.js, TailwindCSS, and Framer Motion for animations.",
@@ -33,7 +44,7 @@ export const otherProjects = [
     techs: ["Next.js", "TailwindCSS", "Framer Motion"],
   },
   {
-    id: 4,
+    id: 5,
     title: "Customer Management",
     description:
       "This is a website developed with Next.js and TailwindCSS when I started learning Next.js with Next.js documentation.",
@@ -43,7 +54,7 @@ export const otherProjects = [
     techs: ["Next.js", "Vercel", "TailwindCSS"],
   },
   {
-    id: 5,
+    id: 6,
     title: "Shireto",
     description:
       "This is a website developed for Team Shireto with Next.js, TailwindCSS, and ShadCN.",
@@ -53,7 +64,7 @@ export const otherProjects = [
     techs: ["Next.js", "TailwindCSS", "ShadCN"],
   },
   {
-    id: 6,
+    id: 7,
     title: "React Commerce",
     description:
       "This is an e-commerce site developed with REACT and full CSS. In this site, you can see all products, add them to cart, and much more.",
