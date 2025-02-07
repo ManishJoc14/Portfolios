@@ -1,6 +1,16 @@
 export const mainProjects = [
   {
     id: 1,
+    title: "Parking spot",
+    description:
+      "Parking spot is a fully funstional website developed with Next.js, Supabase, and Postgress Sql. In this site, you can book a parking spot and see all the details.",
+    img: "/projectImages/parking_spot.png",
+    codelink: "https://github.com/ManishJoc14/parking-spot",
+    demolink: "https://parking-spot-one.vercel.app/",
+    techs: ["Nextjs", "Supabase", "Postgress Sql"],
+  },
+  {
+    id: 2,
     title: "Zingo",
     description:
       "Zingo is chat application made with React, Node.js, Express.js and Socket.io. It's the doorway to a world of friendships waiting to be discovered.",
@@ -8,16 +18,6 @@ export const mainProjects = [
     codelink: "https://github.com/ManishJoc14/zingo",
     demolink: "https://zingo-delta.vercel.app/",
     techs: ["React", "Node.js", "Socket.io"],
-  },
-  {
-    id: 2,
-    title: "React Commerce",
-    description:
-      "This is an e-commerce site developed with REACT and full CSS. In this site, you can see all products, add them to cart, and much more.",
-    img: "/projectImages/ecommerce.png",
-    codelink: "https://github.com/ManishJoc14/e-commerce-website",
-    demolink: "https://manishjoc14.github.io/e-commerce-website/",
-    techs: ["React", "CSS", "React-Toastify"],
   },
 ];
 
@@ -51,5 +51,15 @@ export const otherProjects = [
     codelink: "https://github.com/ManishJoc14/sireto",
     demolink: "https://sireto.vercel.app/home",
     techs: ["Next.js", "TailwindCSS", "ShadCN"],
+  },
+  {
+    id: 6,
+    title: "React Commerce",
+    description:
+      "This is an e-commerce site developed with REACT and full CSS. In this site, you can see all products, add them to cart, and much more.",
+    img: "/projectImages/ecommerce.png",
+    codelink: "https://github.com/ManishJoc14/e-commerce-website",
+    demolink: "https://manishjoc14.github.io/e-commerce-website/",
+    techs: ["React", "CSS", "React-Toastify"],
   },
 ];
