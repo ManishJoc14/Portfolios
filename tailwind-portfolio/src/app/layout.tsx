@@ -59,6 +59,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <JsonLd />
+      </head>
       <body>
         <div className="min-h-screen bg-primary font-mono">
           <div className="mx-auto px-8 py-4"></div>
@@ -66,7 +69,30 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+
       </body>
     </html>
+  );
+}
+
+function JsonLd() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Manish Joshi",
+    "url": "https://manish-joshi.vercel.app",
+    "jobTitle": "Web Developer",
+    "sameAs": [
+      "https://twitter.com/manish_joshi14",
+      "https://github.com/ManishJoc14",
+      "https://www.linkedin.com/in/manish-joshi-9762b2304/"
+    ]
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   );
 }
