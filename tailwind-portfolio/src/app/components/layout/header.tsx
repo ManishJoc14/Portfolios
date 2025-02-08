@@ -93,9 +93,9 @@ export default function Header() {
 
           {/* Resume button */}
           <Link
-            href="/Manish-Joshi-Resume.docx"
+            href="/Manish-Joshi-CV.pdf"
             target="_blank"
-            download="Manish-Joshi-Resume.docx"
+            download="Manish-Joshi-CV.pdf"
             aria-label="Download Resume"
             className="hidden sm:block md:text-md rounded-sm border border-secondary p-2 px-4 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow"
           >
