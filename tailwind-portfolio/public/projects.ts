@@ -25,6 +25,15 @@ export const otherProjects = [
 
   {
     id: 3,
+    title: "Celestials",
+    description:
+      "Celestials is a website developed with THREE.js, Vite, TailwindCSS, and Framer Motion for animations. In this site, you can see all the asteroids and satellites.",
+    img: "/projectImages/celestials.png",
+    codelink: "https://github.com/Team-CELESTIALS/CELESTIALS-frontend",
+    demolink: "https://team-celestials.vercel.app/",
+  },
+  {
+    id: 4,
     title: "Smart Reader",
     description:
       "This is a website who wants to read pdfs and do translations in english to nepali while reading.",
@@ -34,7 +43,7 @@ export const otherProjects = [
     techs: ["Next.js", "Microsoft Azure", "TailwindCSS"],
   },
   {
-    id: 4,
+    id: 5,
     title: "First Next.js Portfolio",
     description:
       "This is my first portfolio site developed with Next.js, TailwindCSS, and Framer Motion for animations.",
@@ -42,16 +51,6 @@ export const otherProjects = [
     codelink: "https://github.com/ManishJoc14/manis",
     demolink: "https://manis-beta.vercel.app/",
     techs: ["Next.js", "TailwindCSS", "Framer Motion"],
-  },
-  {
-    id: 5,
-    title: "Customer Management",
-    description:
-      "This is a website developed with Next.js and TailwindCSS when I started learning Next.js with Next.js documentation.",
-    img: "/projectImages/Acme.png",
-    codelink: "https://github.com/ManishJoc14/nextjs-dashboard",
-    demolink: "https://nextjs-dashboard-three-khaki-10.vercel.app/dashboard",
-    techs: ["Next.js", "Vercel", "TailwindCSS"],
   },
   {
     id: 6,
@@ -72,5 +71,15 @@ export const otherProjects = [
     codelink: "https://github.com/ManishJoc14/e-commerce-website",
     demolink: "https://manishjoc14.github.io/e-commerce-website/",
     techs: ["React", "CSS", "React-Toastify"],
+  },
+  {
+    id: 8,
+    title: "Customer Management",
+    description:
+      "This is a website developed with Next.js and TailwindCSS when I started learning Next.js with Next.js documentation.",
+    img: "/projectImages/Acme.png",
+    codelink: "https://github.com/ManishJoc14/nextjs-dashboard",
+    demolink: "https://nextjs-dashboard-three-khaki-10.vercel.app/dashboard",
+    techs: ["Next.js", "Vercel", "TailwindCSS"],
   },
 ];
