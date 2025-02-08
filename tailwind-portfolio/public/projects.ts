@@ -31,6 +31,7 @@ export const otherProjects = [
     img: "/projectImages/celestials.png",
     codelink: "https://github.com/Team-CELESTIALS/CELESTIALS-frontend",
     demolink: "https://team-celestials.vercel.app/",
+    techs: ["THREE.js", "Vite", "TailwindCSS"],
   },
   {
     id: 4,
