@@ -60,7 +60,7 @@ export const otherProjects = [
       "This is a website developed for Team Shireto with Next.js, TailwindCSS, and ShadCN.",
     img: "/projectImages/shireto.png",
     codelink: "https://github.com/ManishJoc14/sireto",
-    demolink: "https://sireto.vercel.app/home",
+    demolink: "https://shireto.vercel.app/",
     techs: ["Next.js", "TailwindCSS", "ShadCN"],
   },
   {
