@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     creator: "@manish_joshi14",
     images: ["/tailwind-portfolio.png"],
   },
+  verification: {
+    google: "xgbXuHClszfU2-0v5ix743RmG2UuA6ZG2Uq36KqN3y0",
+  },
   robots: {
     index: true,
     follow: true,
