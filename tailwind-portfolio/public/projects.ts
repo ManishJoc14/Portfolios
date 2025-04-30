@@ -22,49 +22,8 @@ export const mainProjects = [
 ];
 
 export const otherProjects = [
-
   {
     id: 3,
-    title: "Celestials",
-    description:
-      "Celestials is a website developed with THREE.js, Vite, TailwindCSS, and Framer Motion for animations. In this site, you can see all the asteroids and satellites.",
-    img: "/projectImages/celestials.png",
-    codelink: "https://github.com/Team-CELESTIALS/CELESTIALS-frontend",
-    demolink: "https://team-celestials.vercel.app/",
-    techs: ["THREE.js", "Vite", "TailwindCSS"],
-  },
-  {
-    id: 4,
-    title: "Smart Reader",
-    description:
-      "This is a website who wants to read pdfs and do translations in english to nepali while reading.",
-    img: "/projectImages/smart_reader.png",
-    codelink: "https://github.com/ManishJoc14/smart-reader",
-    demolink: "https://smart-reader-navy.vercel.app/",
-    techs: ["Next.js", "Microsoft Azure", "TailwindCSS"],
-  },
-  {
-    id: 5,
-    title: "First Next.js Portfolio",
-    description:
-      "This is my first portfolio site developed with Next.js, TailwindCSS, and Framer Motion for animations.",
-    img: "/projectImages/portfolio.png",
-    codelink: "https://github.com/ManishJoc14/manis",
-    demolink: "https://manis-beta.vercel.app/",
-    techs: ["Next.js", "TailwindCSS", "Framer Motion"],
-  },
-  {
-    id: 6,
-    title: "Shireto",
-    description:
-      "This is a website developed for Team Shireto with Next.js, TailwindCSS, and ShadCN.",
-    img: "/projectImages/shireto.png",
-    codelink: "https://github.com/ManishJoc14/sireto",
-    demolink: "https://shireto.vercel.app/",
-    techs: ["Next.js", "TailwindCSS", "ShadCN"],
-  },
-  {
-    id: 7,
     title: "React Commerce",
     description:
       "This is an e-commerce site developed with REACT and full CSS. In this site, you can see all products, add them to cart, and much more.",
@@ -74,7 +33,7 @@ export const otherProjects = [
     techs: ["React", "CSS", "React-Toastify"],
   },
   {
-    id: 8,
+    id: 4,
     title: "Customer Management",
     description:
       "This is a website developed with Next.js and TailwindCSS when I started learning Next.js with Next.js documentation.",
@@ -82,5 +41,45 @@ export const otherProjects = [
     codelink: "https://github.com/ManishJoc14/nextjs-dashboard",
     demolink: "https://nextjs-dashboard-three-khaki-10.vercel.app/dashboard",
     techs: ["Next.js", "Vercel", "TailwindCSS"],
+  },
+  {
+    id: 5,
+    title: "Celestials",
+    description:
+      "Celestials is a website developed with THREE.js, Vite, TailwindCSS, and Framer Motion for animations. In this site, you can see all the asteroids and satellites.",
+    img: "/projectImages/celestials.png",
+    codelink: "https://github.com/Team-CELESTIALS/CELESTIALS-frontend",
+    demolink: "https://team-celestials.vercel.app/",
+    techs: ["THREE.js", "Vite", "TailwindCSS"],
+  },
+  {
+    id: 6,
+    title: "Smart Reader",
+    description:
+      "This is a website who wants to read pdfs and do translations in english to nepali while reading.",
+    img: "/projectImages/smart_reader.png",
+    codelink: "https://github.com/ManishJoc14/smart-reader",
+    demolink: "https://smart-reader-navy.vercel.app/",
+    techs: ["Next.js", "Azure", "TailwindCSS"],
+  },
+  {
+    id: 7,
+    title: "First Next.js Portfolio",
+    description:
+      "This is my first portfolio site developed with Next.js, TailwindCSS, and Framer Motion for animations.",
+    img: "/projectImages/portfolio.png",
+    codelink: "https://github.com/ManishJoc14/manis",
+    demolink: "https://manis-beta.vercel.app/",
+    techs: ["Next.js", "TailwindCSS", "Framer Motion"],
+  },
+  {
+    id: 8,
+    title: "Shireto",
+    description:
+      "This is a website developed for Team Shireto with Next.js, TailwindCSS, and ShadCN.",
+    img: "/projectImages/shireto.png",
+    codelink: "https://github.com/ManishJoc14/sireto",
+    demolink: "https://shireto.vercel.app/",
+    techs: ["Next.js", "TailwindCSS", "ShadCN"],
   },
 ];

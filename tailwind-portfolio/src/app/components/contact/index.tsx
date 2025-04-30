@@ -10,6 +10,7 @@ export default function Contact() {
     // once: true,
     margin: "-40px",
   });
+  const text = "Say Hello";
   return (
     <>
       <motion.div
@@ -61,7 +62,21 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Say Hello
+                {text.split("").map((letter, index) => (
+                  <motion.span
+                    key={index}
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: 0.1 }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: index * 0.1,
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+                😊
               </Link>
             </button>
           </motion.div>

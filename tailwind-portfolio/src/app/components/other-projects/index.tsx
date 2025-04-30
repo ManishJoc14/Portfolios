@@ -16,7 +16,7 @@ export default function OtherProjects() {
     <>
       <motion.div
         ref={containerRef}
-        className="container mx-auto px-8 pb-28 pt-56 sm:pt-52 md:pt-28 xl:py-10 max-w-4xl flex flex-col items-center"
+        className="container mx-auto px-8 pb-28 pt-56 sm:pt-52 md:pt-28 xl:py-10 max-w-5xl flex flex-col items-center"
       >
         <motion.h1
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
@@ -26,7 +26,7 @@ export default function OtherProjects() {
         >
           Other Noteworthy Projects
         </motion.h1>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-col-3 py-16">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-col-4 py-16">
           {otherProjects.map((project, index) =>
             ProjectCard(project, isContainerRefInView, index)
           )}
@@ -59,16 +59,17 @@ function ProjectCard(
     demolink: string;
     techs: string[];
   },
-  isContainerRefInView: {},
+  isContainerRefInView: boolean,
   index: number
 ) {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8, y: 40 }}
       animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-      transition={{ delay: (2.5 + index) * 0.3, duration: 0.6 }}
+      whileHover={{ y: -10, transition: { delay: 0, duration: 0.2 } }}
+      transition={{ delay: (2.5 + index) * 0.3, duration: 0.4 }}
       key={project.id + project.title}
-      className="p-6 bg-primary-light rounded-md"
+      className="p-6 bg-primary-light rounded-md group"
     >
       <div className="flex justify-between">
         <Link href={project.codelink} target="_blank">
@@ -83,12 +84,12 @@ function ProjectCard(
         <Link
           href={project.demolink}
           target="_blank"
-          className="hover:text-secondary cursor-pointer text-teal-400 font-semibold text-xl hover:underline"
+          className="group-hover:text-secondary text-indigo-200 cursor-pointer font-bold text-lg tracking-wide hover:underline"
         >
           {project.title}
         </Link>
-        <p className="text-slate-400 text-pretty mt-4">{project.description}</p>
-        <p className="pt-6 text-zinc-400 font-mono text-md space-x-4 flex flex-wrap">
+        <p className="text-indigo-100 text-pretty text-[0.94rem] mt-4">{project.description}</p>
+        <p className="pt-6 text-indigo-100 font-mono tracking-widest text-[0.8rem] space-x-2 flex flex-wrap">
           {project.techs.map((tech, i) => (
             <span key={tech + i}>{tech}</span>
           ))}
@@ -101,7 +102,7 @@ function ProjectCard(
 function getGitHubLogo() {
   return (
     <svg
-      className="feather feather-github h-10 flex-shrink-0 text-secondary transition-colors cursor-pointer"
+      className="feather feather-github h-6 flex-shrink-0 text-secondary transition-colors cursor-pointer"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       viewBox="0 0 24 24"
@@ -119,7 +120,7 @@ function getGitHubLogo() {
 function getLinkLogo() {
   return (
     <svg
-      className="h-6 cursor-pointer hover:text-secondary text-slate-400 feather feather-external-link"
+      className="h-5 cursor-pointer hover:text-secondary text-slate-400 feather feather-external-link"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       viewBox="0 0 24 24"

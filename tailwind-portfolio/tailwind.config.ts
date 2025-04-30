@@ -16,7 +16,7 @@ const config: Config = {
       colors: {
         primary: "#0a192f",
         secondary: "#64ffda",
-        "primary-light": "#233554",
+        "primary-light": "#112240",
       },
       boxShadow: {
         "primary-shadow": "4px 4px 0 0 #64ffda",
