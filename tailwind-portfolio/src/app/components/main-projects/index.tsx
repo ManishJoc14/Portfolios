@@ -34,14 +34,14 @@ export function MainProjects() {
       </motion.div>
 
       <div className="grid gap-64 md:gap-32 ">
-        {ProjectCardRight(isContainerRefInView)}
-        {ProjectCardLeft(isContainerRefInView)}
+        {<ProjectCardRight isContainerRefInView={isContainerRefInView} />}
+        {<ProjectCardLeft isContainerRefInView={isContainerRefInView} />}
       </div>
     </motion.div>
   );
 }
 
-function ProjectCardRight(isContainerRefInView: {}) {
+function ProjectCardRight({ isContainerRefInView }: { isContainerRefInView: boolean }) {
   let project = mainProjects[0];
   return (
     <>
@@ -54,8 +54,8 @@ function ProjectCardRight(isContainerRefInView: {}) {
       >
         <div className="col-start-1 row-start-2 row-span-7 col-span-3 relative cursor-pointer transition-all hover:z-50 hover:-translate-x-2 hover:-translate-y-2 hover:shadow-primary-shadow rounded-md">
           <Image
-            height={300}
-            width={300}
+            height={600}
+            width={800}
             src={project.img}
             className="block h-full w-full rounded-md"
             alt="zingo"
@@ -100,7 +100,7 @@ function ProjectCardRight(isContainerRefInView: {}) {
   );
 }
 
-function ProjectCardLeft(isContainerRefInView: {}) {
+function ProjectCardLeft({ isContainerRefInView }: { isContainerRefInView: boolean }) {
   let project = mainProjects[1];
   return (
     <>
@@ -114,8 +114,8 @@ function ProjectCardLeft(isContainerRefInView: {}) {
         {/* changed col-start-1 to col-start-3  */}
         <div className="col-start-3 row-start-2 row-span-7 col-span-3 relative cursor-pointer transition-all hover:z-50 hover:-translate-x-2 hover:-translate-y-2 hover:shadow-primary-shadow rounded-md">
           <Image
-            height={300}
-            width={300}
+            height={600}
+            width={800}
             src={project.img}
             className="block h-full w-full rounded-md"
             alt="zingo"

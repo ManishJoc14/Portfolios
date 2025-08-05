@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { otherProjects } from "../../../../public/projects";
+import { webProjects, aiMlProjects, appProjects, Project, threeDProjects } from "../../../../public/projects";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+
+const categories = ["Web", "AI", "3D", "App"];
 
 export default function OtherProjects() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -11,6 +14,23 @@ export default function OtherProjects() {
     // once: true,
     margin: "-40px",
   });
+
+  const [selectedCategory, setSelectedCategory] = useState("Web");
+  const [filteredProjects, setFilteredProjects] = useState<Project[] | null>(null);
+
+  useEffect(() => {
+    if (selectedCategory === "Web") {
+      setFilteredProjects(webProjects);
+    }
+    else if (selectedCategory === "AI") {
+      setFilteredProjects(aiMlProjects);
+    }
+    else if (selectedCategory === "App") {
+      setFilteredProjects(appProjects);
+    } else if (selectedCategory === "3D") {
+      setFilteredProjects(threeDProjects);
+    }
+  }, [selectedCategory]);
 
   return (
     <>
@@ -26,10 +46,33 @@ export default function OtherProjects() {
         >
           Other Noteworthy Projects
         </motion.h1>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-col-4 py-16">
-          {otherProjects.map((project, index) =>
-            ProjectCard(project, isContainerRefInView, index)
-          )}
+
+        {/* Category Buttons */}
+        <div className="flex flex-wrap justify-center gap-3 py-8">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-5 py-2 rounded-full border transition-all duration-200 text-sm font-medium ${selectedCategory === cat
+                ? "bg-secondary text-black"
+                : "border-secondary text-secondary hover:bg-secondary hover:text-black"
+                }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-5 md:grid-cols-3 xl:grid-col-4 py-16">
+          {filteredProjects && filteredProjects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              isContainerRefInView={isContainerRefInView}
+              index={index}
+            />
+          ))}
+
         </div>
 
         {/* Button */}
@@ -49,53 +92,104 @@ export default function OtherProjects() {
   );
 }
 
-function ProjectCard(
-  project: {
-    id: number;
-    title: string;
-    description: string;
-    img: string;
-    codelink: string;
-    demolink: string;
-    techs: string[];
-  },
-  isContainerRefInView: boolean,
-  index: number
-) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.8, y: 40 }}
-      animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
-      whileHover={{ y: -10, transition: { delay: 0, duration: 0.2 } }}
-      transition={{ delay: (2.5 + index) * 0.3, duration: 0.4 }}
-      key={project.id + project.title}
-      className="p-6 bg-primary-light rounded-md group"
-    >
-      <div className="flex justify-between">
-        <Link href={project.codelink} target="_blank">
-          {getGitHubLogo()}
-        </Link>
-        <Link href={project.demolink} target="_blank">
-          {getLinkLogo()}
-        </Link>
-      </div>
+function ProjectCard({
+  project,
+  isContainerRefInView,
+  index,
+}: {
+  project: Project;
+  isContainerRefInView: boolean;
+  index: number;
+}) {
 
-      <div className="py-10 font-sans">
-        <Link
-          href={project.demolink}
-          target="_blank"
-          className="group-hover:text-secondary text-indigo-200 cursor-pointer font-bold text-lg tracking-wide hover:underline"
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8, y: 40 }}
+        animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
+        whileHover={{ y: -10, transition: { delay: 0, duration: 0.2 } }}
+        transition={{ delay: (2.5 + index) * 0.3, duration: 0.4 }}
+        key={project.id + project.title}
+        className="bg-primary-light rounded-xl shadow-lg group transition-all duration-300 hover:shadow-xl flex flex-col"
+      >
+        {/* Image */}
+        <div
+          onClick={() => setIsModalOpen(true)}
+          className="overflow-hidden rounded-t-md aspect-video bg-slate-800 cursor-pointer"
         >
-          {project.title}
-        </Link>
-        <p className="text-indigo-100 text-pretty text-[0.94rem] mt-4">{project.description}</p>
-        <p className="pt-6 text-indigo-100 font-mono tracking-widest text-[0.8rem] space-x-2 flex flex-wrap">
-          {project.techs.map((tech, i) => (
-            <span key={tech + i}>{tech}</span>
-          ))}
-        </p>
-      </div>
-    </motion.div>
+          <Image
+            height={500}
+            width={500}
+            src={project.img}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+
+        <div className="p-4 pt-0">
+          {/* Title + Description */}
+          <div className="py-6 font-sans flex flex-col justify-between h-full">
+            <div className="flex justify-between items-center">
+              <Link
+                href={project.demolink}
+                target="_blank"
+                className="group-hover:text-secondary text-indigo-200 font-bold text-lg tracking-wide hover:underline"
+              >
+                {project.title}
+              </Link>
+
+              <div className="flex gap-3 items-center justify-end">
+                <Link href={project.codelink} target="_blank">
+                  {getGitHubLogo()}
+                </Link>
+                <Link href={project.demolink} target="_blank">
+                  {getLinkLogo()}
+                </Link>
+              </div>
+            </div>
+
+            <p className="text-indigo-100 text-pretty text-[0.94rem] mt-3">
+              {project.description}
+            </p>
+
+            {/* Tech Stack */}
+            <p className="pt-5 text-indigo-100 tracking-widest text-[0.8rem] space-x-2 flex flex-wrap">
+              {project.techs.map((tech, i) => (
+                <code className="bg-gray-700 rounded-md px-1" key={tech + i}>{tech}</code>
+              ))}
+            </p>
+          </div>
+        </div>
+      </motion.div>
+      {isModalOpen && (
+        <div
+          onClick={() => setIsModalOpen(false)}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative max-w-4xl w-full p-4"
+          >
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="absolute -top-4 right-0 text-red-500 text-4xl hover:text-red-600"
+            >
+              &times;
+            </button>
+            <Image
+              src={project.img}
+              alt={project.title}
+              width={1000}
+              height={600}
+              className="w-full h-auto rounded-lg shadow-lg object-contain"
+            />
+          </div>
+        </div>
+      )}
+
+    </>
   );
 }
 
