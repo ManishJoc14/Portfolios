@@ -86,9 +86,9 @@ export default function Hamburger() {
           transition={{ delay: navLinks.length * 0.1, duration: 0.4 }}
         >
           <Link
-            href="/Resume-Manish-Joshi.pdf"
+            href="/DHARMANANDA-JOSHI-CV.pdf"
             target="_blank"
-            download="Resume-Manish-Joshi.pdf"
+            download="DHARMANANDA-JOSHI-CV.pdf"
             aria-label="Download Resume"
             className="md:text-md rounded-sm border border-secondary p-2 px-4 text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 hover:-translate-y-1 hover:shadow-primary-shadow"
           >
