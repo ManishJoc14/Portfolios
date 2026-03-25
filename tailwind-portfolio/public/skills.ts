@@ -244,6 +244,15 @@ export const backendSkills = [
     </svg>`,
   },
   {
+    name: "FastAPI",
+    svg: `<svg viewBox="0 0 128 128">
+      <circle cx="64" cy="64" r="64" fill="#009688"></circle>
+      <rect x="36" y="28" width="12" height="72" fill="#fff"></rect>
+      <rect x="36" y="28" width="50" height="12" fill="#fff"></rect>
+      <rect x="36" y="58" width="40" height="12" fill="#fff"></rect>
+    </svg>`,
+  },
+  {
     name: "MongoDB",
     svg: `<svg viewBox="0 0 128 128">
     <path

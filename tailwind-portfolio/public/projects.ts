@@ -11,27 +11,37 @@ export interface Project {
 export const mainProjects: Project[] = [
   {
     "id": 1,
-    "title": "TCIOE CMS",
-    "description": "A powerful content management system built for our college using React, MUI, and Redux Toolkit. Enables admins to manage events, blogs, users, and more.",
-    "img": "/projectImages/tcioe_cms.png",
-    "codelink": "https://github.com/ManishJoc14/tcioe-cms",
-    "demolink": "https://tcioe-cms.vercel.app/",
-    "techs": ["React", "MUI", "Redux Toolkit"]
+    "title": "TabFlux",
+    "description": "A platform designed to bridge academic learning with industry-oriented technical skills.",
+    "img": "/projectImages/tabflux.png",
+    "codelink": "https://github.com/ManishJoc14/tabflux-frontend",
+    "demolink": "https://www.tabflux.com/",
+    "techs": ["Next.js", "Tailwind CSS", "Redux Toolkit Query"]
   },
   {
     "id": 2,
-    "title": "Parking spot",
-    "description": "Parking spot is a fully functional website developed with Next.js, Supabase, and PostgreSQL. In this site, you can book a parking spot and see all the details.",
-    "img": "/projectImages/parking_spot.png",
-    "codelink": "https://github.com/ManishJoc14/parking-spot",
-    "demolink": "https://parking-spot-one.vercel.app/",
-    "techs": ["Next.js", "Supabase", "PostgreSQL"]
+    "title": "Lexia",
+    "description": "An AI-assisted IELTS preparation platform that evaluates user responses and generates automated feedback using intelligent processing pipelines.",
+    "img": "/projectImages/lexia.png",
+    "codelink": "https://github.com/ManishJoc14/lexia",
+    "demolink": "https://lexia-ielts.vercel.app/",
+    "techs": ["Next.js", "Tailwind CSS", "AI/NLP"]
   }
 ];
 
 export const webProjects: Project[] = [
   {
     id: 3,
+    title: "QA Agent",
+    description:
+      "A modular, agentic QA engine that can automatically test websites or URLs using AI and registered tools. It leverages an LLM provider (currently Mistral) and allows tool-based automation like browser actions and bash commands.",
+    img: "/projectImages/qa_agent.png",
+    codelink: "https://github.com/ManishJoc14/QAAgent",
+    demolink: "https://qa-agent-gamma.vercel.app/",
+    techs: ["Next.js", "TypeScript", "LLM Tools"]
+  },
+  {
+    id: 4,
     title: "Customer Management",
     description:
       "This is a website developed with Next.js and TailwindCSS when I started learning Next.js with Next.js documentation.",
@@ -41,7 +51,7 @@ export const webProjects: Project[] = [
     techs: ["Next.js", "Vercel", "TailwindCSS"]
   },
   {
-    id: 4,
+    id: 5,
     title: "IMS Template",
     description:
       "A modern and reusable CMS dashboard template built with React, MUI, and Redux Toolkit. Designed as a scalable base for future admin panel or CMS projects.",
@@ -51,7 +61,7 @@ export const webProjects: Project[] = [
     techs: ["React", "MUI", "Redux Toolkit"]
   },
   {
-    id: 5,
+    id: 6,
     title: "React Commerce",
     description:
       "This is an e-commerce site developed with REACT and full CSS. In this site, you can see all products, add them to cart, and much more.",
@@ -61,7 +71,7 @@ export const webProjects: Project[] = [
     techs: ["React", "CSS", "React-Toastify"]
   },
   {
-    id: 6,
+    id: 7,
     title: "Zingo",
     description:
       "Zingo is chat application made with React, Node.js, Express.js and Socket.io. It's the doorway to a world of friendships waiting to be discovered.",
@@ -70,18 +80,18 @@ export const webProjects: Project[] = [
     demolink: "https://zingo-delta.vercel.app/",
     techs: ["React", "Node.js", "Socket.io"]
   },
+  // {
+  //   id: 8,
+  //   title: "Habit Buddy",
+  //   description:
+  //     "A habit tracker web app with a unique tech stack - React for the frontend and C++ for the backend logic. Built with Redux Thunk for state management and styled using Tailwind CSS.",
+  //   img: "/projectImages/habit_buddy.png",
+  //   codelink: "https://github.com/ManishJoc14/Habit_Buddy",
+  //   demolink: "",
+  //   techs: ["React", "Thunk", "Tailwind", "C++"]
+  // },
   {
-    id: 7,
-    title: "Habit Buddy",
-    description:
-      "A habit tracker web app with a unique tech stack — React for the frontend and C++ for the backend logic. Built with Redux Thunk for state management and styled using Tailwind CSS.",
-    img: "/projectImages/habit_buddy.png",
-    codelink: "https://github.com/ManishJoc14/Habit_Buddy",
-    demolink: "",
-    techs: ["React", "Thunk", "Tailwind", "C++"]
-  },
-  {
-    id: 8,
+    id: 9,
     title: "Smart Reader",
     description:
       "This is a website who wants to read pdfs and do translations in english to nepali while reading.",
@@ -91,7 +101,7 @@ export const webProjects: Project[] = [
     techs: ["Next.js", "Azure", "TailwindCSS"]
   },
   // {
-  //   id: 9,
+  //   id: 10,
   //   title: "Cricket Live",
   //   description:
   //     "A live cricket score application that provides real-time updates and match information. Built using React with a focus on fast and responsive UI.",
@@ -101,7 +111,7 @@ export const webProjects: Project[] = [
   //   techs: ["Next.js", "Tailwind CSS"]
   // },
   // {
-  //   id: 10,
+  //   id: 11,
   //   title: "First Next.js Portfolio",
   //   description:
   //     "This is my first portfolio site developed with Next.js, TailwindCSS, and Framer Motion for animations.",
@@ -113,8 +123,18 @@ export const webProjects: Project[] = [
 ];
 
 export const aiMlProjects: Project[] = [
-  {
+    {
     id: 11,
+    title: "TBVision",
+    description:
+      "Tuberculosis Detection and Analysis from Chest X-Ray Images with Uncertainty Estimation using trained model and LLMs.",
+    img: "/projectImages/tbvision.png",
+    codelink: "https://github.com/ManishJoc14/TBVision",
+    demolink: "",
+    techs: ["Python", "Deep Learning", "LLMs"]
+  },
+  {
+    id: 12,
     title: "Nepal Constitution Chatbot (RAG)",
     description:
       "An intelligent chatbot that answers questions based on the Nepal Constitution using Retrieval-Augmented Generation (RAG) with LangChain, LLaMA 3, and Streamlit.",
@@ -124,7 +144,7 @@ export const aiMlProjects: Project[] = [
     techs: ["LangChain", "LLaMA 3", "Streamlit"]
   },
   {
-    id: 12,
+    id: 13,
     title: "NLP Chatbot Trainer",
     description:
       "A customizable chatbot training platform built with PyTorch and spaCy. Users can upload their own `intents.json`, train a neural network, and interact with a personalized AI chatbot — all through a Streamlit interface.",
@@ -134,7 +154,7 @@ export const aiMlProjects: Project[] = [
     techs: ["PyTorch", "SpaCy", "Streamlit", "NumPy"]
   },
   {
-    id: 13,
+    id: 14,
     title: "Smart Dustbin (Waste Classifier)",
     description:
       "A FastAPI application that powers a smart dustbin by identifying waste using YOLOv8s for object detection and DenseNet201 for classification. It classifies waste into Recyclable or Organic categories using the TACO dataset.",
@@ -144,7 +164,7 @@ export const aiMlProjects: Project[] = [
     techs: ["FastAPI", "YOLOv8s", "DenseNet201", "TACO Dataset"]
   },
   {
-    id: 14,
+    id: 15,
     title: "GROQ AI Chatbot",
     description:
       "A chatbot built using GROQ SDK and the LLaMA 3.3 70B model (Versatile). Developed with Next.js and TypeScript, providing fast and intelligent AI interactions.",
@@ -157,7 +177,7 @@ export const aiMlProjects: Project[] = [
 
 export const threeDProjects: Project[] = [
   {
-    id: 15,
+    id: 16,
     title: "Celestials",
     description:
       "Celestials is a website developed with THREE.js, Vite, TailwindCSS, and Framer Motion for animations. In this site, you can see all the asteroids and satellites.",
@@ -167,7 +187,7 @@ export const threeDProjects: Project[] = [
     techs: ["THREE.js", "Vite", "TailwindCSS"]
   },
   {
-    id: 16,
+    id: 17,
     title: "Neev – Birthday Website",
     description:
       "A creative and interactive birthday website built for a friend, combining 3D elements with smooth animations using React Fiber, Framer Motion, and Next.js.",
@@ -177,7 +197,7 @@ export const threeDProjects: Project[] = [
     techs: ["Next.js", "Framer Motion", "React Fiber", "Tailwind CSS"]
   },
   {
-    id: 17,
+    id: 18,
     title: "Shireto",
     description:
       "This is a website developed for Team Shireto with Next.js, TailwindCSS, and ShadCN.",
@@ -190,7 +210,7 @@ export const threeDProjects: Project[] = [
 
 export const appProjects: Project[] = [
   {
-    id: 18,
+    id: 19,
     title: "QuizIt",
     description:
       "A cross-platform quiz application built with Expo, TypeScript, and NativeWind. Designed for mobile and web, it allows users to take interactive quizzes with a responsive and intuitive UI.",
