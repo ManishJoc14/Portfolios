@@ -66,7 +66,7 @@ export default function OtherProjects() {
         <div className="grid grid-cols-2 gap-5 md:grid-cols-3 xl:grid-col-4 py-16">
           {filteredProjects && filteredProjects.map((project, index) => (
             <ProjectCard
-              key={project.id}
+              key={project.title}
               project={project}
               isContainerRefInView={isContainerRefInView}
               index={index}
@@ -111,7 +111,7 @@ function ProjectCard({
         animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
         whileHover={{ y: -10, transition: { delay: 0, duration: 0.2 } }}
         transition={{ delay: (2.5 + index) * 0.3, duration: 0.4 }}
-        key={project.id + project.title}
+        key={project.title}
         className="bg-primary-light rounded-xl shadow-lg group transition-all duration-300 hover:shadow-xl flex flex-col"
       >
         {/* Image */}
@@ -132,21 +132,29 @@ function ProjectCard({
           {/* Title + Description */}
           <div className="py-6 font-sans flex flex-col justify-between h-full">
             <div className="flex justify-between items-center">
-              <Link
-                href={project.demolink}
-                target="_blank"
-                className="group-hover:text-secondary text-indigo-200 font-bold text-lg tracking-wide hover:underline"
-              >
-                {project.title}
-              </Link>
+              {project.demolink ? (
+                <Link
+                  href={project.demolink}
+                  target="_blank"
+                  className="group-hover:text-secondary text-indigo-200 font-bold text-lg tracking-wide hover:underline"
+                >
+                  {project.title}
+                </Link>
+              ) : (
+                <span className="text-indigo-200 font-bold text-lg tracking-wide">
+                  {project.title}
+                </span>
+              )}
 
               <div className="flex gap-3 items-center justify-end">
                 <Link href={project.codelink} target="_blank">
                   {getGitHubLogo()}
                 </Link>
-                <Link href={project.demolink} target="_blank">
-                  {getLinkLogo()}
-                </Link>
+                {project.demolink && (
+                  <Link href={project.demolink} target="_blank">
+                    {getLinkLogo()}
+                  </Link>
+                )}
               </div>
             </div>
 

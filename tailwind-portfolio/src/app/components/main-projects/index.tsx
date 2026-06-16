@@ -49,7 +49,7 @@ function ProjectCardRight({ isContainerRefInView }: { isContainerRefInView: bool
         initial={{ opacity: 0, scale: 0.8, y: 40 }}
         animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
         transition={{ delay: 1 * 0.3, duration: 0.8 }}
-        key={project.id}
+        key={project.title}
         className="md:grid gap-2 max-h-96 mt-16 md:grid-cols-5 md:grid-rows-9 rounded-md relative"
       >
         <div className="col-start-1 row-start-2 row-span-7 col-span-3 relative cursor-pointer transition-all hover:z-50 hover:-translate-x-2 hover:-translate-y-2 hover:shadow-primary-shadow rounded-md">
@@ -66,13 +66,19 @@ function ProjectCardRight({ isContainerRefInView }: { isContainerRefInView: bool
         <p className="pt-6 col-start-5 row-start-1 font-mono text-sm text-secondary text-nowrap md:text-right">
           Featured Project
         </p>
-        <Link
-          target="_blank"
-          href={project.demolink}
-          className="underline col-start-4 row-start-2 col-span-2 md:text-right w-full font-mono text-3xl pt-2 text-slate-200 hover:underline cursor-pointer hover:text-secondary font-bold tracking-wide"
-        >
-          {project.title}
-        </Link>
+        {project.demolink ? (
+          <Link
+            target="_blank"
+            href={project.demolink}
+            className="underline col-start-4 row-start-2 col-span-2 md:text-right w-full font-mono text-3xl pt-2 text-slate-200 hover:underline cursor-pointer hover:text-secondary font-bold tracking-wide"
+          >
+            {project.title}
+          </Link>
+        ) : (
+          <span className="col-start-4 row-start-2 col-span-2 md:text-right w-full font-mono text-3xl pt-2 text-slate-200 font-bold tracking-wide">
+            {project.title}
+          </span>
+        )}
         <p className="col-start-3 row-start-4 row-span-2 col-span-3 font-sans tracking-wider text-sm text-slate-300 md:text-right z-10 md:bg-primary-light md:py-6 p-4 rounded-md">
           {project.description}
         </p>
@@ -84,13 +90,15 @@ function ProjectCardRight({ isContainerRefInView }: { isContainerRefInView: bool
         </p>
 
         <div className="row-start-8 col-start-5 flex gap-4 md:justify-end">
-          <Link
-            href={project.demolink}
-            target="_blank"
-            className="rounded-sm border border-secondary text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 py-2 px-6 hover:-translate-y-1 hover:shadow-primary-shadow text-nowrap"
-          >
-            Demo
-          </Link>
+          {project.demolink && (
+            <Link
+              href={project.demolink}
+              target="_blank"
+              className="rounded-sm border border-secondary text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 py-2 px-6 hover:-translate-y-1 hover:shadow-primary-shadow text-nowrap"
+            >
+              Demo
+            </Link>
+          )}
           <Link target="_blank" href={project.codelink}>
             {getGitHubLogo()}
           </Link>
@@ -108,7 +116,7 @@ function ProjectCardLeft({ isContainerRefInView }: { isContainerRefInView: boole
         initial={{ opacity: 0, scale: 0.8, y: 40 }}
         animate={isContainerRefInView ? { opacity: 1, scale: 1, y: 0 } : {}}
         transition={{ delay: 3 * 0.3, duration: 0.8 }}
-        key={project.id}
+        key={project.title}
         className="md:grid space-y-2 md:space-y-0 max-h-96 mt-16 md:grid-cols-5 md:grid-rows-9 rounded-md relative"
       >
         {/* changed col-start-1 to col-start-3  */}
@@ -129,13 +137,19 @@ function ProjectCardLeft({ isContainerRefInView }: { isContainerRefInView: boole
         </p>
 
         {/* changed col-start-4 to col-start-1 and removed md:text-right */}
-        <Link
-          target="_blank"
-          href={project.demolink}
-          className="underline col-start-1 row-start-2 col-span-2 md:text-left w-full font-mono text-3xl pt-2 text-slate-200 hover:underline cursor-pointer hover:text-secondary font-bold tracking-wide"
-        >
-          {project.title}
-        </Link>
+        {project.demolink ? (
+          <Link
+            target="_blank"
+            href={project.demolink}
+            className="underline col-start-1 row-start-2 col-span-2 md:text-left w-full font-mono text-3xl pt-2 text-slate-200 hover:underline cursor-pointer hover:text-secondary font-bold tracking-wide"
+          >
+            {project.title}
+          </Link>
+        ) : (
+          <span className="col-start-1 row-start-2 col-span-2 md:text-left w-full font-mono text-3xl pt-2 text-slate-200 font-bold tracking-wide">
+            {project.title}
+          </span>
+        )}
 
         {/* changed col-start-3 to col-start-1 and removed md:text-right */}
         <p className="col-start-1 row-start-4 row-span-2 col-span-3 font-sans tracking-wider text-sm text-slate-300 z-10 md:bg-primary-light py-4 md:py-6 md:px-2 rounded-md">
@@ -151,13 +165,15 @@ function ProjectCardLeft({ isContainerRefInView }: { isContainerRefInView: boole
 
         {/* changed col-start-5 to col-start-1 and removed md:text-right */}
         <div className="row-start-8 col-start-1 flex gap-4 items-center">
-          <Link
-            target="_blank"
-            href={project.demolink}
-            className="rounded-sm border border-secondary text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 py-2 px-6 hover:-translate-y-1 hover:shadow-primary-shadow text-nowrap"
-          >
-            Demo
-          </Link>
+          {project.demolink && (
+            <Link
+              target="_blank"
+              href={project.demolink}
+              className="rounded-sm border border-secondary text-sm tracking-wider text-secondary transition-all hover:-translate-x-1 py-2 px-6 hover:-translate-y-1 hover:shadow-primary-shadow text-nowrap"
+            >
+              Demo
+            </Link>
+          )}
           <Link target="_blank" href={project.codelink}>
             {getGitHubLogo()}
           </Link>
